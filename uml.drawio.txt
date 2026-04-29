@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1400" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--                   CUSTOMER CLASS                    -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <mxCell id="2" value="Customer" style="swimlane;startSize=30;fontStyle=1;fontSize=13;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+      <mxGeometry x="60" y="80" width="260" height="180" as="geometry"/>
+    </mxCell>
+    <mxCell id="3" value="- customerID: string&#xa;- name: string&#xa;- address: string&#xa;- phone: string&#xa;- email: string&#xa;- joinDate: string" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="2">
+      <mxGeometry x="0" y="30" width="260" height="100" as="geometry"/>
+    </mxCell>
+    <mxCell id="4" value="+ registerCustomer(): void&#xa;+ getDetails(): string&#xa;+ updateInfo(): void&#xa;+ getClaimHistory(): list" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="2">
+      <mxGeometry x="0" y="130" width="260" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--                   VEHICLE CLASS                     -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <mxCell id="5" value="Vehicle" style="swimlane;startSize=30;fontStyle=1;fontSize=13;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+      <mxGeometry x="400" y="80" width="260" height="180" as="geometry"/>
+    </mxCell>
+    <mxCell id="6" value="- vehicleID: string&#xa;- registrationNo: string&#xa;- make: string&#xa;- model: string&#xa;- year: int&#xa;- customerID: string" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="5">
+      <mxGeometry x="0" y="30" width="260" height="100" as="geometry"/>
+    </mxCell>
+    <mxCell id="7" value="+ addVehicle(): void&#xa;+ getDetails(): string&#xa;+ updateVehicle(): void" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="5">
+      <mxGeometry x="0" y="130" width="260" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--                   POLICY CLASS                      -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <mxCell id="8" value="InsurancePolicy" style="swimlane;startSize=30;fontStyle=1;fontSize=13;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+      <mxGeometry x="740" y="80" width="260" height="190" as="geometry"/>
+    </mxCell>
+    <mxCell id="9" value="- policyID: string&#xa;- customerID: string&#xa;- vehicleID: string&#xa;- policyType: string&#xa;- premiumAmount: double&#xa;- startDate: string&#xa;- endDate: string&#xa;- status: string" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="8">
+      <mxGeometry x="0" y="30" width="260" height="110" as="geometry"/>
+    </mxCell>
+    <mxCell id="10" value="+ issuePolicy(): void&#xa;+ renewPolicy(): void&#xa;+ cancelPolicy(): void&#xa;+ getPolicyDetails(): string" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="8">
+      <mxGeometry x="0" y="140" width="260" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--                    CLAIM CLASS                      -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <mxCell id="11" value="Claim" style="swimlane;startSize=30;fontStyle=1;fontSize=13;fillColor=#ffe6cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="60" y="370" width="260" height="200" as="geometry"/>
+    </mxCell>
+    <mxCell id="12" value="- claimID: string&#xa;- policyID: string&#xa;- customerID: string&#xa;- dateOfClaim: string&#xa;- description: string&#xa;- claimAmount: double&#xa;- status: string&#xa;- surveyorID: string" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="11">
+      <mxGeometry x="0" y="30" width="260" height="110" as="geometry"/>
+    </mxCell>
+    <mxCell id="13" value="+ fileClaim(): void&#xa;+ assignSurveyor(): void&#xa;+ approveClaim(): void&#xa;+ rejectClaim(): void&#xa;+ getStatus(): string" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="11">
+      <mxGeometry x="0" y="140" width="260" height="60" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--                 INSPECTION CLASS                    -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <mxCell id="14" value="Inspection" style="swimlane;startSize=30;fontStyle=1;fontSize=13;fillColor=#ffe6cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="400" y="370" width="260" height="200" as="geometry"/>
+    </mxCell>
+    <mxCell id="15" value="- inspectionID: string&#xa;- claimID: string&#xa;- surveyorID: string&#xa;- inspectionDate: string&#xa;- findings: string&#xa;- estimatedDamage: double&#xa;- reportStatus: string" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="14">
+      <mxGeometry x="0" y="30" width="260" height="110" as="geometry"/>
+    </mxCell>
+    <mxCell id="16" value="+ createReport(): void&#xa;+ submitReport(): void&#xa;+ getFindings(): string&#xa;+ updateReport(): void" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="14">
+      <mxGeometry x="0" y="140" width="260" height="60" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--                   STAFF CLASS (Abstract)            -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <mxCell id="17" value="«abstract»&#xa;Staff" style="swimlane;startSize=40;fontStyle=3;fontSize=13;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="740" y="370" width="260" height="180" as="geometry"/>
+    </mxCell>
+    <mxCell id="18" value="- staffID: string&#xa;- name: string&#xa;- phone: string&#xa;- email: string&#xa;- role: string" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="17">
+      <mxGeometry x="0" y="40" width="260" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="19" value="+ login(): bool&#xa;+ getDetails(): string&#xa;+ updateProfile(): void" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="17">
+      <mxGeometry x="0" y="120" width="260" height="60" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--                  SALESMAN CLASS                     -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <mxCell id="20" value="Salesman" style="swimlane;startSize=30;fontStyle=1;fontSize=13;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="620" y="670" width="220" height="150" as="geometry"/>
+    </mxCell>
+    <mxCell id="21" value="- salesTarget: double&#xa;- commissionRate: double" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="20">
+      <mxGeometry x="0" y="30" width="220" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="22" value="+ registerCustomer(): void&#xa;+ issuePolicy(): void&#xa;+ viewCustomers(): void" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="20">
+      <mxGeometry x="0" y="80" width="220" height="70" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--                  SURVEYOR CLASS                     -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <mxCell id="23" value="Surveyor" style="swimlane;startSize=30;fontStyle=1;fontSize=13;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="880" y="670" width="220" height="150" as="geometry"/>
+    </mxCell>
+    <mxCell id="24" value="- specialization: string&#xa;- assignedClaims: int" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="23">
+      <mxGeometry x="0" y="30" width="220" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="25" value="+ conductInspection(): void&#xa;+ submitReport(): void&#xa;+ viewAssignedClaims(): void" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="23">
+      <mxGeometry x="0" y="80" width="220" height="70" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--                  MANAGER CLASS                      -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <mxCell id="26" value="Manager" style="swimlane;startSize=30;fontStyle=1;fontSize=13;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="1080" y="370" width="260" height="190" as="geometry"/>
+    </mxCell>
+    <mxCell id="27" value="- managerID: string&#xa;- name: string&#xa;- department: string" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="26">
+      <mxGeometry x="0" y="30" width="260" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="28" value="+ approveClaim(): void&#xa;+ rejectClaim(): void&#xa;+ generateReport(): void&#xa;+ viewPendingClaims(): void&#xa;+ viewNewCustomers(): void&#xa;+ viewInspectionReports(): void" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="26">
+      <mxGeometry x="0" y="90" width="260" height="100" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--                  WORKSHOP CLASS                     -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <mxCell id="29" value="Workshop" style="swimlane;startSize=30;fontStyle=1;fontSize=13;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="1080" y="80" width="260" height="180" as="geometry"/>
+    </mxCell>
+    <mxCell id="30" value="- workshopID: string&#xa;- name: string&#xa;- address: string&#xa;- phone: string&#xa;- isRegistered: bool&#xa;- specialization: string" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="29">
+      <mxGeometry x="0" y="30" width="260" height="90" as="geometry"/>
+    </mxCell>
+    <mxCell id="31" value="+ registerWorkshop(): void&#xa;+ getDetails(): string&#xa;+ updateInfo(): void" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="29">
+      <mxGeometry x="0" y="120" width="260" height="60" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--                  REPAIR ORDER CLASS                 -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <mxCell id="32" value="RepairOrder" style="swimlane;startSize=30;fontStyle=1;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="60" y="670" width="260" height="170" as="geometry"/>
+    </mxCell>
+    <mxCell id="33" value="- repairID: string&#xa;- claimID: string&#xa;- workshopID: string&#xa;- repairDate: string&#xa;- repairCost: double&#xa;- status: string" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="32">
+      <mxGeometry x="0" y="30" width="260" height="90" as="geometry"/>
+    </mxCell>
+    <mxCell id="34" value="+ createRepairOrder(): void&#xa;+ updateStatus(): void&#xa;+ getRepairDetails(): string" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="32">
+      <mxGeometry x="0" y="120" width="260" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--               FILE HANDLER CLASSES                  -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <mxCell id="35" value="«abstract»&#xa;FileHandler" style="swimlane;startSize=40;fontStyle=3;fontSize=12;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+      <mxGeometry x="400" y="680" width="200" height="130" as="geometry"/>
+    </mxCell>
+    <mxCell id="36" value="# filePath: string" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="35">
+      <mxGeometry x="0" y="40" width="200" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="37" value="+ readAll(): list&#xa;+ writeRecord(): void&#xa;+ deleteRecord(): void" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="35">
+      <mxGeometry x="0" y="70" width="200" height="60" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!--                        RELATIONSHIPS                                -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <!-- Customer owns Vehicle (1 to many) -->
+    <mxCell id="40" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeWidth=2;" edge="1" source="2" target="5" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="41" value="1" style="resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="40">
+      <mxGeometry x="-1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="42" value="0..*" style="resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="40">
+      <mxGeometry x="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="43" value="owns" style="resizable=0;html=1;fontSize=11;fontStyle=2;" connectable="0" vertex="1" parent="40">
+      <mxGeometry relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+
+    <!-- Customer has Policy (1 to many) -->
+    <mxCell id="44" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeWidth=2;" edge="1" source="2" target="8" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="190" y="50"/>
+          <mxPoint x="870" y="50"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="45" value="1" style="resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="44">
+      <mxGeometry x="-1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="46" value="0..*" style="resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="44">
+      <mxGeometry x="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="47" value="holds" style="resizable=0;html=1;fontSize=11;fontStyle=2;" connectable="0" vertex="1" parent="44">
+      <mxGeometry relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+
+    <!-- Vehicle covered by Policy (1 to 1) -->
+    <mxCell id="48" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeWidth=2;" edge="1" source="5" target="8" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="49" value="1" style="resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="48">
+      <mxGeometry x="-1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="50" value="1..*" style="resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="48">
+      <mxGeometry x="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="51" value="covered by" style="resizable=0;html=1;fontSize=11;fontStyle=2;" connectable="0" vertex="1" parent="48">
+      <mxGeometry relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+
+    <!-- Policy generates Claim -->
+    <mxCell id="52" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeWidth=2;" edge="1" source="8" target="11" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="870" y="330"/>
+          <mxPoint x="190" y="330"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="53" value="1" style="resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="52">
+      <mxGeometry x="-1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="54" value="0..*" style="resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="52">
+      <mxGeometry x="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="55" value="generates" style="resizable=0;html=1;fontSize=11;fontStyle=2;" connectable="0" vertex="1" parent="52">
+      <mxGeometry relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+
+    <!-- Claim has Inspection (1 to 1) -->
+    <mxCell id="56" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeWidth=2;" edge="1" source="11" target="14" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="57" value="1" style="resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="56">
+      <mxGeometry x="-1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="58" value="1" style="resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="56">
+      <mxGeometry x="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="59" value="requires" style="resizable=0;html=1;fontSize=11;fontStyle=2;" connectable="0" vertex="1" parent="56">
+      <mxGeometry relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+
+    <!-- Claim leads to RepairOrder -->
+    <mxCell id="60" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeWidth=2;" edge="1" source="11" target="32" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="61" value="1" style="resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="60">
+      <mxGeometry x="-1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="62" value="0..1" style="resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="60">
+      <mxGeometry x="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="63" value="leads to" style="resizable=0;html=1;fontSize=11;fontStyle=2;" connectable="0" vertex="1" parent="60">
+      <mxGeometry relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+
+    <!-- RepairOrder sent to Workshop -->
+    <mxCell id="64" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeWidth=2;" edge="1" source="32" target="29" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="190" y="900"/>
+          <mxPoint x="1210" y="900"/>
+          <mxPoint x="1210" y="260"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="65" value="1..*" style="resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="64">
+      <mxGeometry x="-1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="66" value="1" style="resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=12;fontStyle=1;" connectable="0" vertex="1" parent="64">
+      <mxGeometry x="1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+    <mxCell id="67" value="sent to" style="resizable=0;html=1;fontSize=11;fontStyle=2;" connectable="0" vertex="1" parent="64">
+      <mxGeometry relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+
+    <!-- Staff (abstract) to Salesman inheritance -->
+    <mxCell id="68" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeWidth=2;" edge="1" source="20" target="17" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- Staff (abstract) to Surveyor inheritance -->
+    <mxCell id="69" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;strokeWidth=2;" edge="1" source="23" target="17" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- Surveyor conducts Inspection -->
+    <mxCell id="70" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeWidth=2;dashed=1;" edge="1" source="23" target="14" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="990" y="745"/>
+          <mxPoint x="530" y="745"/>
+          <mxPoint x="530" y="570"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="71" value="conducts" style="resizable=0;html=1;fontSize=11;fontStyle=2;" connectable="0" vertex="1" parent="70">
+      <mxGeometry relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+
+    <!-- Manager approves Claim -->
+    <mxCell id="72" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeWidth=2;dashed=1;" edge="1" source="26" target="11" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="1080" y="465"/>
+          <mxPoint x="400" y="465"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="73" value="approves/rejects" style="resizable=0;html=1;fontSize=11;fontStyle=2;" connectable="0" vertex="1" parent="72">
+      <mxGeometry relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+
+    <!-- FileHandler <<uses>> Business Classes (dependency) -->
+    <mxCell id="74" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeWidth=1;dashed=1;" edge="1" source="35" target="11" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="75" value="«uses»" style="resizable=0;html=1;fontSize=10;fontStyle=2;" connectable="0" vertex="1" parent="74">
+      <mxGeometry relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+    </mxCell>
+
+    <!-- Manager generates Reports (note) -->
+    <mxCell id="76" value="Note: Manager generates reports:&#xa;• New Customers per Month&#xa;• Pending Claims List&#xa;• Inspection Reports&#xa;• Customer Claim History" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=14;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1080" y="610" width="260" height="110" as="geometry"/>
+    </mxCell>
+    <mxCell id="77" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;dashed=1;strokeColor=#d6b656;" edge="1" source="26" target="76" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- Legend -->
+    <mxCell id="78" value="Legend" style="swimlane;startSize=25;fontStyle=1;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+      <mxGeometry x="60" y="910" width="300" height="150" as="geometry"/>
+    </mxCell>
+    <mxCell id="79" value="─── Association (has-a / uses)&#xa;──▷ Inheritance (is-a)&#xa;- - ▷ Dependency / Realization&#xa;1, 0..*, 1..* = Multiplicity" style="text;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;" vertex="1" parent="78">
+      <mxGeometry x="0" y="25" width="300" height="125" as="geometry"/>
+    </mxCell>
+
+  </root>
+</mxGraphModel>
