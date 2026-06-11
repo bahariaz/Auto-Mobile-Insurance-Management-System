@@ -11,50 +11,45 @@ Workshop Integration — Route approved repairs only to registered workshops
 Role-Based Access — Separate menus and permissions for Salesmen, Surveyors, and Managers
 
 
-🏗️ Architecture
-┌─────────────────────────────────────┐
-│        Presentation Layer           │  ← Text/menu-driven UI
-├─────────────────────────────────────┤
-│         Business Layer              │  ← C++ classes (Customer, Vehicle,
-│                                     │    Policy, Claim, Inspection, Staff,
-│                                     │    Workshop, Manager, RepairOrder)
-├─────────────────────────────────────┤
-│        Persistence Layer            │  ← FileHandler classes (CSV/binary)
-│                                     │    called only by the business layer
-└─────────────────────────────────────┘
+🏗️ Architecture<br>
+├─ Presentation Layer ← Text/menu-driven UI<br>
+├─ Business Layer ← C++ classes (Customer, Vehicle, Policy, Claim, Inspection, Staff, Workshop, Manager, RepairOrder) <br>
+└─ Persistence Layer ← FileHandler classes (CSV/binary) called only by the business layer <br>
+
 
 🗂️ Project Structure
 InsuranceSystem/
-├── src/
-│   ├── presentation/       # Menu-driven UI
-│   ├── business/           # Core domain classes
-│   │   ├── Customer.cpp / .h
-│   │   ├── Vehicle.cpp / .h
-│   │   ├── InsurancePolicy.cpp / .h
-│   │   ├── Claim.cpp / .h
-│   │   ├── Inspection.cpp / .h
-│   │   ├── Staff.cpp / .h
-│   │   ├── Salesman.cpp / .h
-│   │   ├── Surveyor.cpp / .h
-│   │   ├── Manager.cpp / .h
-│   │   ├── Workshop.cpp / .h
-│   │   └── RepairOrder.cpp / .h
-│   └── persistence/        # File I/O handlers
-│       ├── FileHandler.h
-│       ├── CustomerFileHandler.cpp / .h
-│       ├── ClaimFileHandler.cpp / .h
-│       └── ...
-├── data/                   # Flat files (CSV)
-│   ├── customers.csv
-│   ├── vehicles.csv
-│   ├── policies.csv
-│   ├── claims.csv
-│   ├── inspections.csv
-│   └── workshops.csv
-├── diagrams/
-│   ├── uml.drawio.txt
-│   └── usecase.drawio.txt
-└── README.md
+<br>
+├── src/<br>
+│   ├── presentation/       # Menu-driven UI<br>
+│   ├── business/           # Core domain classes<br>
+│   │   ├── Customer.cpp / .h<br>
+│   │   ├── Vehicle.cpp / .h<br>
+│   │   ├── InsurancePolicy.cpp / .h<br>
+│   │   ├── Claim.cpp / .h<br>
+│   │   ├── Inspection.cpp / .h<br>
+│   │   ├── Staff.cpp / .h<br>
+│   │   ├── Salesman.cpp / .h<br>
+│   │   ├── Surveyor.cpp / .h<br>
+│   │   ├── Manager.cpp / .h<br>
+│   │   ├── Workshop.cpp / .h<br>
+│   │   └── RepairOrder.cpp / .h<br>
+│   └── persistence/        # File I/O handlers<br>
+│       ├── FileHandler.h<br>
+│       ├── CustomerFileHandler.cpp / .h<br>
+│       ├── ClaimFileHandler.cpp / .h<br>
+│       └── ...<br>
+├── data/                   # Flat files (CSV)<br>
+│   ├── customers.csv<br>
+│   ├── vehicles.csv<br>
+│   ├── policies.csv<br>
+│   ├── claims.csv<br>
+│   ├── inspections.csv<br>
+│   └── workshops.csv<br>
+## diagrams/
+│   ├── uml.drawio.txt<br>
+│   └── usecase.drawio.txt<br>
+└── README.md<br>
 
 👥 Actors & Roles
 RolePermissionsCustomerRegister, add vehicle, file claim, track claim statusSalesmanRegister customers, issue/renew policiesSurveyorView assigned claims, conduct inspections, submit reportsManagerApprove/reject claims, generate all reports, manage workshopsWorkshopUpdate repair status on assigned repair ordersSystem AdminRegister workshops, manage system access
